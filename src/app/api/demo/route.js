@@ -29,6 +29,27 @@ export async function POST(req,res){
             })
 
 
+            //Transactions & Rollback
+            let deleteProductReview = await prisma.ProductReview.delete({
+                where:{id:1}
+            })
+
+            let Rollbackresult = await prisma.User.create({
+                data: {
+                    firstName: 'lorem',
+                    middleName: 'ipsum',
+                    lastName: 'test',
+                    mobile: '66666666',
+                    email: 'hgh@mail.com',
+                    password: '123',
+                    admin: 'ert',
+                }
+            })
+
+            const deleteProductReviewresult= await prisma.$transaction([deleteProductReview, Rollbackresult])
+
+
+
 
             //CREATE
             let result = await prisma.User.create({
