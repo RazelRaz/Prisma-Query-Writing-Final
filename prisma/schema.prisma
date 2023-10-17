@@ -13,7 +13,7 @@ datasource db {
 
 model User {
    id                BigInt             @id @default(autoincrement()) @db.UnsignedBigInt
-  first_name        String            @db.VarChar(100)
+  firstName        String            @db.VarChar(100)
   middleName        String            @db.VarChar(100)
   lastName         String            @db.VarChar(100)
   mobile           String             @db.VarChar(100)
@@ -42,7 +42,7 @@ model Category {
   createdAt        DateTime           @default(now()) @db.Timestamp(0)
   updatedAt        DateTime           @default(now()) @db.Timestamp(0) @updatedAt
 
-   Product Product[]
+  Product Product[]
 
 }
 
@@ -53,7 +53,7 @@ model Product {
   metaTitle        String             @db.VarChar(200)
   slug             String             @db.VarChar(200)
   summary     String             @db.VarChar(500)
- price      String   @db.VarChar(100)
+  price      String   @db.VarChar(100)
   discount   Boolean
   userId   BigInt            @unique(map: "user_id_unique") @db.UnsignedBigInt
   publishedAt DateTime           @default(now()) @db.Timestamp(0)
@@ -91,7 +91,7 @@ model Cart {
   sessionId       BigInt  @unique(map: "session_id_unique") @db.UnsignedBigInt
   token          String    @db.VarChar(100)
   status          String    @db.VarChar(100)
-  first_name        String            @db.VarChar(100)
+  firstName        String            @db.VarChar(100)
   middleName        String            @db.VarChar(100)
   lastName         String            @db.VarChar(100)
   mobile           String             @db.VarChar(100)
@@ -134,7 +134,7 @@ model Order {
   total        String     @db.VarChar(50)
   discount     String     @db.VarChar(50)
   grandTotal        String     @db.VarChar(50)
-  first_name        String            @db.VarChar(100)
+  firstName        String            @db.VarChar(100)
   middleName        String            @db.VarChar(100)
   lastName         String            @db.VarChar(100)
 
