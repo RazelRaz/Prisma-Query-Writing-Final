@@ -13,6 +13,22 @@ export async function POST(req,res){
 
         const prisma = new PrismaClient();
 
+            //aggregate
+            let aggregateResult = await prisma.Product.aggregate({
+                _avg:{price:true},
+                _count:{price:true},
+                _max:{price:true},
+                _min:{price:true},
+                _sum:{price:true},
+            })
+
+            //groupBy
+            let groupByResult = await prisma.Order.groupBy({
+                by:["city"],
+                _count:{id:true}
+            })
+
+
 
             //CREATE
             let result = await prisma.User.create({

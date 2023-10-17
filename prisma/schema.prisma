@@ -42,7 +42,7 @@ model Category {
   createdAt        DateTime           @default(now()) @db.Timestamp(0)
   updatedAt        DateTime           @default(now()) @db.Timestamp(0) @updatedAt
 
-   Product Product[]
+  Product Product[]
 
 }
 
@@ -53,7 +53,7 @@ model Product {
   metaTitle        String             @db.VarChar(200)
   slug             String             @db.VarChar(200)
   summary     String             @db.VarChar(500)
- price      String   @db.VarChar(100)
+  price      String   @db.VarChar(100)
   discount   Boolean
   userId   BigInt            @unique(map: "user_id_unique") @db.UnsignedBigInt
   publishedAt DateTime           @default(now()) @db.Timestamp(0)
