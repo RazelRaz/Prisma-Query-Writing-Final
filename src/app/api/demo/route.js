@@ -7,9 +7,12 @@ export async function POST(req,res){
         return this.toString();
     };
 
+
+    
     try {
 
         // const reqBody = await req.json()
+        //all
 
         const prisma = new PrismaClient();
 
